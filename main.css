@@ -1,0 +1,15 @@
+#welcome{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    background-color: #90BAFE;
+   
+}
+
+#login {
+    height: 5vh;
+    width: 10vh;
+    border-radius: 10%;
+    background-color: white;
+    color: black
+}
