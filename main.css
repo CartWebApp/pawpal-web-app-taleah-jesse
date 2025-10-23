@@ -151,3 +151,36 @@ body {
     flex-direction: row;
     justify-content: left;
 }
+
+li {
+    list-style-type: none;
+}
+
+#navdate {
+    background: white;
+    color: black;
+    border-color: black;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 7vh;
+    height: 3.5vh;
+     text-decoration: none;  
+    display: inline-block;
+    
+}
+
+#healthoverview {
+    background: white;
+    color: black;
+    border-color: black;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 7vh;
+    height: 3.5vh;
+     text-decoration: none;  
+    display: inline-block;  
+}
