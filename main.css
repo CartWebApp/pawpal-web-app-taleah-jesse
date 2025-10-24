@@ -15,10 +15,14 @@ body {
 
 .navbar {
     display: flex;
-    align-items: center;
-    padding: 15px 20px;
+    flex-direction: row;
+    align-content: center;
+   
+   padding: 15px 20px;
     background: #6B94CC;
     border-bottom: 2px solid #5682B8;
+    max-width: 100%;
+
 }
 
 .navbar-logo {
@@ -28,7 +32,7 @@ body {
     border-radius: 50%;
     margin-right: 15px;
     display: flex;
-    justify-content: center;
+    align-self: flex-start;
     align-items: center;
     overflow: hidden;
 }
@@ -156,7 +160,8 @@ li {
     list-style-type: none;
 }
 
-#navdate {
+.navbuttons {
+    
     background: white;
     color: black;
     border-color: black;
@@ -168,19 +173,30 @@ li {
     height: 3.5vh;
      text-decoration: none;  
     display: inline-block;
+    transform: rotate(-2deg);
+    background-clip: padding-box;
+
     
 }
 
-#healthoverview {
-    background: white;
-    color: black;
-    border-color: black;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 7vh;
-    height: 3.5vh;
-     text-decoration: none;  
-    display: inline-block;  
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+}
+
+.navbar li {
+    margin: 15px;
+}
+
+
+.navbar ul li section p {
+   text-align: start;
+   font-size: 11px;
+}
+
+.navbuttons:hover{
+    background-color: #609cf9;
+
 }
