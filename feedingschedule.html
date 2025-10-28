@@ -1,12 +1,14 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- </head>
- <body>
-     <header>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>Pawpal | Feeding Schedule</title>
+</head>
+<body>
+    <header>
         <nav class="navbar">
             <div class="navbar-logo">
                 <img id="pawpalogo" src="img/pawpalogo.jpg" alt="PawPal logo">
@@ -14,5 +16,31 @@
             <h1>Paw-Pal</h1>
         </nav>
     </header>
- </body>
- </html>
+
+    <main>
+        <section class="feeding-section">
+            <h2>Feeding Schedule</h2>
+            <p><span class="pet-name">[Pet's Name]</span>is eating healthy and well</p>
+            <button class="add-activity">+ Add activity</button>
+
+            <div class="timeline">
+                <div class="time-labels">
+                    <span>8:00am</span>
+                    <span>10:00am</span>
+                    <span>12:00pm</span>
+                    <span>2:00pm</span>
+                    <span>4:00pm</span>
+                    <span>6:00pm</span>
+                </div>
+
+            <div class="activities">
+            <div class="activity" style="left:5%;">Feeding at 8:30</div>
+          <div class="activity" style="left:20%;">Snack at 10:00</div>
+          <div class="activity" style="left:35%;">Medication at 12:45</div>
+          <div class="activity" style="left:55%;">Feeding at 2:30</div>
+        </div>
+      </div>
+        </section>
+       </main>
+    </body>
+</html>
