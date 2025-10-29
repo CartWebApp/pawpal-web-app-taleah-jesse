@@ -259,6 +259,81 @@ align-items: center;
     
 }
 
+
+
+.Login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 2vh;
+    place-items: center;
+    
+}
+
+.grid a {
+   display: flex;
+   text-decoration: none;
+   justify-content: center;
+   align-items: center;
+   font-weight: 600;
+   font-size: xx-large;
+   color: black;
+}
+
+.grid a:visited {
+    color: black;
+
+}
+
+
+#emptyprofilemain {
+    
+    gap: 5vh
+
+}
+
+
+
+.square {
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    border-radius: 0.75rem;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+#emptyprofilemain #h2 h2 {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .pictures {
 position: relative;
 cursor: pointer;
@@ -298,3 +373,5 @@ cursor: pointer;
         .pictures:hover .remove-btn {
             display: flex;
         }
+
+
