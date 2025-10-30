@@ -14,13 +14,38 @@
             <div class="navbar-logo">
                 <img id="pawpalogo" src="img/pawpalogo.jpg" alt="PawPal logo">
             </div>
-            <h1>Paw-Pal</h1>
+            
+            <ul>
+            <li>
+                <section>
+                    <p id="current-date"></p>
+                </section>
+       </li>
+       <li>
+        <a href="healthoverview.html" class="navbuttons">Health Overview</a>
+       </li>
+<li>
+    <a href="feedingschedule.html" class="navbuttons">Feeding Schedule</a>
+</li>
+<li>
+    <a href="walkingschedule.html" class="navbuttons">Walking Schedule</a>
+</li>
+
+<li>
+    <a href="appointments.html" class="navbuttons" >Appointments</a>
+</li>
+<li>
+    <a href="petprofiles.html" class="navbuttons">Change PetProfile</a>
+</li>
+            </ul>
         </nav>
     </header>
 
-    <main class="Login">
-<h1>New Pet Profile</h1>
-    <label for="username">Pet Name:</label>
+    <main class="createpetprofile">
+<h1>New Pet Profile:</h1>
+   
+
+<label for="username">Pet Name:</label>
     <input type="text" id="petname" name="petname" required>
     <br><br>
     <label for="petage">Pet Age:</label>
@@ -30,6 +55,9 @@
     <input type="pettype" id="pettype" name="pettype" required>
     <br><br>
     <label for="image">Add Image:</label>
+    <div class="pictures" onclick="triggerUpload(this)">
+        <input type="file" accept="image/*" onchange="handleImageUpload(event, this)">
+    </div>
     <input type="file" id="image" accept=image/* style=display:none;>
 
     <section id="createpetbox">
@@ -46,6 +74,111 @@
 <p>Done</p>
 </section>
 
+
+
+
+
+
 </main>
+<script>
+    
+    // Load saved images when page loads
+window.addEventListener('DOMContentLoaded', function() {
+    loadSavedImages();
+});
+
+function loadSavedImages() {
+    const boxes = document.querySelectorAll('.pictures');
+    boxes.forEach((box, index) => {
+        const savedImage = localStorage.getItem('petImage_' + index);
+        if (savedImage) {
+            displayImage(box, savedImage);
+        }
+    });
+}
+
+function triggerUpload(box) {
+    const fileInput = box.querySelector('input[type="file"]');
+    if (fileInput) {
+        fileInput.click();
+    }
+}
+
+function handleImageUpload(event, input) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+        alert('Please upload an image file');
+        return;
+    }
+
+    const reader = new FileReader();
+    const box = input.parentElement;
+
+    reader.onload = function(e) {
+        const imageData = e.target.result;
+        
+        // Save to localStorage
+        const boxes = document.querySelectorAll('.pictures');
+        const boxIndex = Array.from(boxes).indexOf(box);
+        localStorage.setItem('petImage_' + boxIndex, imageData);
+        
+        // Display the image
+        displayImage(box, imageData);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function displayImage(box, imageData) {
+    // Clear existing content except file input
+    const existingImg = box.querySelector('img');
+    const existingBtn = box.querySelector('.remove-btn');
+    
+    if (existingImg) existingImg.remove();
+    if (existingBtn) existingBtn.remove();
+    
+    // Create image element
+    const img = document.createElement('img');
+    img.src = imageData;
+    img.alt = 'Pet photo';
+    
+    // Create remove button
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.innerHTML = '×';
+    removeBtn.onclick = function(event) {
+        event.stopPropagation();
+        removeImage(this);
+    };
+    
+    // Add elements to box
+    box.appendChild(img);
+    box.appendChild(removeBtn);
+}
+
+function removeImage(btn) {
+    event.stopPropagation();
+    const box = btn.parentElement;
+    const img = box.querySelector('img');
+    
+    // Remove from localStorage
+    const boxes = document.querySelectorAll('.pictures');
+    const boxIndex = Array.from(boxes).indexOf(box);
+    localStorage.removeItem('petImage_' + boxIndex);
+    
+    if (img) img.remove();
+    btn.remove();
+    
+    // Reset file input
+    const input = box.querySelector('input[type="file"]');
+    if (input) {
+        input.value = '';
+    }
+}
+
+</script>
+
 </body>
 </html>

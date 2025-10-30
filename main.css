@@ -14,7 +14,7 @@ body {
 
 }
 
-
+/*The start of  Nav Bar related CSS*/
 .navbar {
     display: flex;
     flex-direction: row;
@@ -23,7 +23,7 @@ body {
    padding: 15px 20px;
     background: #6B94CC;
     border-bottom: 2px solid #5682B8;
-    max-width: 100%;
+    max-width: 100%; /*Universal Nav Bar for wesbite*/
 
 }
 
@@ -39,13 +39,6 @@ body {
     overflow: hidden;
 }
 
-#pawpalogo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 5px;
-}
-
 .navbar h1 {
     font-size: 42px;
     font-weight: 600;
@@ -53,6 +46,84 @@ body {
    
 }
 
+.navbuttons {
+    
+    background: white;
+    color: black;
+    border-color: black;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 7vh;
+    height: 3.5vh;
+     text-decoration: none;  
+    display: inline-block;
+    transform: rotate(-1deg);
+    background-clip: padding-box;
+    border: 0.12rem solid black;
+    
+} 
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15vh;
+   
+}
+
+.navbar li {
+    margin: 15px;
+}
+
+
+.navbar ul li section p {
+   text-align: start;
+   font-size: 11px;
+}
+
+.navbuttons:hover{
+    background-color: #609cf9;
+
+}
+
+.navbuttons:active {
+    background-color:  #609cf9;
+}
+
+
+#current-date { /*The current date tracker within the nav bar*/
+    background: white;
+    color: black;
+    border-color: black;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 7vh;
+    height: 3.5vh;
+ text-decoration: none;  
+    display: inline-block;
+    transform: rotate(-1deg);
+    background-clip: padding-box;
+    border: 0.12rem solid black;
+    
+
+}
+
+#pawpalogo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+}
+
+/*The end of nav bar related CSS*/
+
+
+/*The start of index.html css*/
 
 #Welcome {
     flex: 1;
@@ -60,7 +131,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px; /*This gap seperates Login and sign up along with their repswective text*/
+    gap: 30px; /*This gap seperates Login and sign up along with their respective text*/
     padding: 40px 20px;
 }
 
@@ -71,38 +142,6 @@ body {
     background: white;
     padding: 8px 20px;
     border-radius: 4px;
-}
-
-#Signup {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   gap: 10px;
-}
-
-#Signup h1 {
-    
-    
-    font-size: 28px;
-    font-weight: 500;
-    color: black;
-    background: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    
-}
-
-
-
-
-
-.differentlogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
 }
 
 
@@ -135,16 +174,42 @@ body {
     display: inline-block;
     text-align: center;
 }
+ /*end of css for index*/
 
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: #FFFF;
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
+
+
+
+
+/*The start of signup.html CSS*/
+
+.differentlogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
 }
 
+
+#Signup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   gap: 10px;
+}
+
+#Signup h1 {
+    
+    
+    font-size: 28px;
+    font-weight: 500;
+    color: black;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    
+}
 
 #toscheckbox {
     display: flex;
@@ -158,52 +223,17 @@ body {
     justify-content: left;
 }
 
-li {
-    list-style-type: none;
-}
 
-.navbuttons {
-    
-    background: white;
-    color: black;
-    border-color: black;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 7vh;
-    height: 3.5vh;
-     text-decoration: none;  
-    display: inline-block;
-    transform: rotate(-1deg);
-    background-clip: padding-box;
-    border: 0.12rem solid black;
-    
-}
-
-.navbar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15vh;
-   
-}
-
-.navbar li {
-    margin: 15px;
-}
+/*The end of signup.html CSS*/
 
 
-.navbar ul li section p {
-   text-align: start;
-   font-size: 11px;
-}
+/*The start of login.html CSS*/
 
-.navbuttons:hover{
-    background-color: #609cf9;
+/*The end of login.html CSS*/
 
-}
+
+/*The start of petprofiles.html CSS*/
+
 
 
 #petprofilesmain {
@@ -236,36 +266,9 @@ align-items: center;
     color: black;
 }
 
-.navbuttons:active {
-    background-color:  #609cf9;
-}
-
-
-#current-date {
-    background: white;
-    color: black;
-    border-color: black;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 7vh;
-    height: 3.5vh;
- text-decoration: none;  
-    display: inline-block;
-    transform: rotate(-1deg);
-    background-clip: padding-box;
-    border: 0.12rem solid black;
-    
-}
 
 
 
-.Login {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 
 
 
@@ -314,16 +317,38 @@ align-items: center;
 #emptyprofilemain #h2 h2 {
     text-align: center;
 }
+/*end of empty profiles*/
+
+.createpetprofile {
+    display: flex;
+}
 
 
 
 
 
+/*Start of Miscellaneous CSS*/
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #FFFF;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+.Login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 
-
-
-
+/*Eend of Miscellaneous CSS*/
 
 
 
@@ -375,3 +400,21 @@ cursor: pointer;
         }
 
 
+/* walking schedule html below*/
+   .weekdays span {
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 8px;
+   }
+    
+   .stats-container {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+   }
