@@ -10,11 +10,59 @@
  </head>
  <body>
      <header>
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <img id="pawpalogo" src="img/pawpalogo.jpg" alt="PawPal logo">
-            </div>
-            <h1>Paw-Pal</h1>
+      <nav class="nav-buttons">
+        <button>MM/DD/YY</button>
+        <button>Health Overview</button>
+        <button>Feeding Schedule</button>
+        <button>Walking Schedule</button>
+        <button class="active">Appointments</button>
+        <button>Change Pet Profile</button>
+      </nav>
+    </header>
+    <main>
+      <div class="left-panel">
+        <h2>[PETNAME] has an upcoming appointment(s) soon.</h2>
+
+        <div class="appointments">
+          <div class="apt green">Vet checkup at 2:00pm</div>
+          <div class="apt blue">Grooming apt at 12:00pm</div>
+          <div class="apt purple">Training apt at 4:00pm</div>
+        </div>
+      </div>
+
+      <div class="calendar-section">
+        <h3>October 2025</h3>
+        <table class="calendar">
+          <thead>
+            <tr>
+              <th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+            </tr>
+            <tr>
+              <td>8</td><td class="green-day">9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+            </tr>
+            <tr>
+              <td>15</td><td>16</td><td class="blue-day">18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+            </tr>
+            <tr>
+              <td>23</td><td>24</td><td>25</td><td>26</td><td class="purple-day">28</td><td>29</td><td>30</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="side-buttons">
+          <button class="add">+ Add a reminder</button>
+          <button class="add">+ Add an appointment</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
         </nav>
     </header>
  </body>
