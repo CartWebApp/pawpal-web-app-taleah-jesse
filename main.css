@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
 }
 
 body {
@@ -15,6 +15,14 @@ body {
 }
 
 /*The start of  Nav Bar related CSS*/
+
+.mobilenavbar {
+    display: none;
+}
+
+
+
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -245,11 +253,11 @@ align-items: center;
 
 #profiles {
    
-    display: flex;
-   flex-direction: row;
-   justify-content: space-around;
-   gap: 15vh;
-  
+   display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+   row-gap: 2vh;
+    place-items: center;
+    column-gap: 2vh;
 }
 
 .pictures {
@@ -357,6 +365,12 @@ li {
 position: relative;
 cursor: pointer;
  overflow: hidden;
+ width: 15vh;
+    height: 15vh;
+    background-color: white;
+    border-radius: 0.75rem;
+    object-fit: contain;
+    object-position: center;
  }
 
 .pictures img {
@@ -412,3 +426,58 @@ cursor: pointer;
     align-items: center;
  
    }
+@media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh; /* Makes body full height */
+  }
+  
+  .grid {
+    order: 2; /* Middle */
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .navbar {
+    display: none;
+  }
+  
+  .mobilenavbar {
+    order: 3; /* Last - highest number */
+    display: flex;
+    margin-top: auto; /* Pushes to bottom if there's space */
+  }
+  
+  .mobilenavbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .mobilenavbar li {
+    display: flex;
+  }
+  
+  .mobilenavbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  #h2 {
+    order: 3; /* First */
+  }
+  .square {
+    border-radius: 50%;
+  }
+
+  
+  
+}
