@@ -321,13 +321,27 @@ align-items: center;
 }
 /*end of empty profiles*/
 
+
+/*Start of createpetprofile CSS*/
+
 .createpetprofile {
+    display: flex;
+    flex-direction: column;
+align-items: center;
+
+}
+.petname {
     display: flex;
 }
 
+.petage {
+    display: flex;
+}
 
-
-
+.pettype {
+    display: flex;
+}
+/*End of createpetprofile CSS*/
 
 /*Start of Miscellaneous CSS*/
 .box {
@@ -350,7 +364,7 @@ li {
 }
 
 
-/*Eend of Miscellaneous CSS*/
+/*End of Miscellaneous CSS*/
 
 
 
