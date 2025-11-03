@@ -55,22 +55,24 @@ body {
 }
 
 .navbuttons {
-    
     background: white;
     color: black;
     border-color: black;
-    padding: 16px 32px;
+    padding: 0.75rem 1.5rem; 
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 1rem; 
     font-weight: 500;
-    width: 7vh;
-    height: 3.5vh;
-     text-decoration: none;  
+    
+    min-width: 10rem; 
+    height: auto; 
+    text-decoration: none;  
     display: inline-block;
     transform: rotate(-1deg);
     background-clip: padding-box;
     border: 0.12rem solid black;
-    
+    white-space: nowrap; 
+    text-align: center; 
+    line-height: 1.4; 
 } 
 
 .navbar ul {
@@ -78,8 +80,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 15vh;
-   
+    gap: clamp(1rem, 3vw, 3rem); 
 }
 
 .navbar li {
@@ -275,8 +276,12 @@ body {
 display: flex;
 flex-direction: column;
 align-items: center;
-}
 
+
+}
+#blondedog {
+    object-fit: contain;
+}
 
 #profiles {
    
@@ -308,7 +313,14 @@ align-items: center;
     place-items: center;
     
 }
-
+.gridpetprofiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5vh;
+    column-gap: 10vh;
+    place-items: center;
+    
+}
 .grid a {
    display: flex;
    text-decoration: none;
@@ -319,10 +331,27 @@ align-items: center;
    color: black;
 }
 
+
+.gridpetprofiles a {
+   display: flex;
+   text-decoration: none;
+   justify-content: center;
+   align-items: center;
+   font-weight: 600;
+   font-size: xx-large;
+   color: black;
+}
+
+.gridpetprofiles a:visited {
+    color: black;
+
+}
+
 .grid a:visited {
     color: black;
 
 }
+
 
 
 #emptyprofilemain {
@@ -340,6 +369,8 @@ align-items: center;
     border-radius: 0.75rem;
     object-fit: contain;
     object-position: center;
+    overflow: hidden;
+    
 }
 
 
@@ -468,7 +499,8 @@ cursor: pointer;
  
    }
 @media screen and (max-width: 768px) {
-  body {
+  
+    body {
     display: flex;
     flex-direction: column-reverse;
     font-family: 'Inter', sans-serif;
@@ -485,9 +517,9 @@ cursor: pointer;
   }
   
   .mobilenavbar {
-    order: 3; /* Last - highest number */
+    order: 3; 
     display: flex;
-    margin-top: auto; /* Pushes to bottom if there's space */
+    margin-top: auto;
   }
   
   .mobilenavbar ul {
@@ -519,7 +551,14 @@ cursor: pointer;
     border-radius: 50%;
   }
 
+  .gridpetprofiles {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 3vh;
+    column-gap: 6vh;
+    margin-bottom: 20%;
+  }
   
+<<<<<<< HEAD
   
 }
 
@@ -704,3 +743,7 @@ h1 {
 
 
 
+=======
+}
+
+>>>>>>> 6ff9043aa353001330bdac2a71cb9a00159c853d
