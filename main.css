@@ -236,6 +236,33 @@ body {
 
 
 /*The start of login.html CSS*/
+#login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   gap: 10px;
+}
+
+#login h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: black;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    
+}
+
+#donecheckbox{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+   
+}
+
+
 
 /*The end of login.html CSS*/
 
@@ -495,3 +522,185 @@ cursor: pointer;
   
   
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: #91baf9;
+  color: #000;
+  text-align: center;
+}
+
+
+.date-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 80px;
+}
+
+.left-btn,
+.right-btn {
+  background: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.left-btn:hover,
+.right-btn:hover {
+  transform: scale(1.05);
+}
+
+
+h1 {
+  background: #fff;
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 6px;
+  margin: 20px auto;
+  box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+
+
+.pet-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  margin-top: 15px;
+}
+
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #fff;
+  width: 200px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 2p
+}
+/*end of other html*/ 
+
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #87b7f3; 
+  color: #000;
+}
+
+
+header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  border-bottom: 2px solid #d6d6d6;
+}
+
+.navbar {
+  display: flex;
+  gap: 12px;
+  
+}
+
+
+
+
+h1 {
+  font-size: 28px;
+  color: #000;
+  margin: 0;
+}
+
+
+.feeding-section {
+  background-color: #87b7f3;
+  text-align: center;
+  padding: 30px 20px;
+  min-height: 80vh;
+}
+
+.feeding-section h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.feeding-section p {
+  font-size: 16px;
+  background-color: white;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.add-activity {
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.add-activity:hover {
+  background-color: #e4efff;
+}
+
+
+.timeline {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.time-labels {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 30px;
+  background-color: #87b7f3;
+  color: #000;
+}
+
+
+.activities {
+  position: relative;
+  height: 200px;
+}
+
+.activity {
+  position: absolute;
+  top: 40px;
+  width: 130px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
