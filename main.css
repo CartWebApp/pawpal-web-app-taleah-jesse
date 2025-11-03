@@ -289,7 +289,8 @@ align-items: center;
 .gridpetprofiles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 2vh;
+    row-gap: 5vh;
+    column-gap: 10vh;
     place-items: center;
     
 }
@@ -531,3 +532,4 @@ cursor: pointer;
   }
   
 }
+
