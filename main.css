@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+
+
+
 body {
     
     min-height: 100vh;
@@ -20,7 +23,11 @@ body {
     display: none;
 }
 
-
+header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 
 .navbar {
@@ -31,7 +38,8 @@ body {
    padding: 15px 20px;
     background: #6B94CC;
     border-bottom: 2px solid #5682B8;
-    max-width: 100%; /*Universal Nav Bar for wesbite*/
+    max-width: none; /*Universal Nav Bar for wesbite*/
+    width: 100%;
 
 }
 
@@ -81,16 +89,18 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: clamp(1rem, 3vw, 3rem); 
+    flex: 1;
 }
 
 .navbar li {
-    margin: 15px;
+    margin: 0;
 }
 
 
 .navbar ul li section p {
    text-align: start;
    font-size: 11px;
+
 }
 
 .navbuttons:hover{
@@ -103,24 +113,7 @@ body {
 }
 
 
-#current-date { /*The current date tracker within the nav bar*/
-    background: white;
-    color: black;
-    border-color: black;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 7vh;
-    height: 3.5vh;
- text-decoration: none;  
-    display: inline-block;
-    transform: rotate(-1deg);
-    background-clip: padding-box;
-    border: 0.12rem solid black;
-    
 
-}
 
 #pawpalogo {
     width: 100%;
@@ -231,6 +224,7 @@ body {
     flex-direction: row;
     justify-content: left;
 }
+
 
 
 /*The end of signup.html CSS*/
@@ -382,22 +376,130 @@ align-items: center;
 
 /*Start of createpetprofile CSS*/
 
-.createpetprofile {
+#newpetprofile {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.profile-form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 30rem;
+}
+
+.profile-form h1 {
+    background: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    margin: 0 0 2rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#pet-form {
     display: flex;
     flex-direction: column;
-align-items: center;
-
-}
-.petname {
-    display: flex;
+    gap: 1.5rem;
 }
 
-.petage {
+.form-group {
     display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.pettype {
+.form-group label {
+    font-weight: 600;
+    font-size: 1.125rem;
+    min-width: 7rem;
+    text-align: right;
+}
+
+.form-group input[type="text"] {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.photo-group {
+    align-items: flex-start;
+}
+
+.photo-upload {
+    width: 3rem;
+    height: 3rem;
+    background: white;
+    border: 0.125rem solid #ccc;
+    border-radius: 0.5rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-upload:hover {
+    transform: scale(1.05);
+    border-color: #609cf9;
+}
+
+.photo-icon {
+    font-size: 1.5rem;
+}
+
+#photo-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.done-btn {
+    background: white;
+    border: 0.125rem solid black;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.done-btn:hover {
+    background: #609cf9;
+    transform: translateY(-0.125rem);
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group label {
+        text-align: left;
+        min-width: auto;
+    }
+
+    .photo-group {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 /*End of createpetprofile CSS*/
 
@@ -429,6 +531,148 @@ li {
 
 
 
+/* Health Overview Page */
+#healthoverview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    gap: 2rem;
+}
+
+.health-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.date-nav-btn {
+    background: white;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.health-header h1 {
+    background: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.current-date {
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.pet-photo-section {
+    display: flex;
+    justify-content: center;
+}
+
+.pet-circle-photo {
+    width: clamp(10rem, 20vw, 15rem);
+    height: clamp(10rem, 20vw, 15rem);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3rem solid white;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.health-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: black;
+}
+
+.stat-icon {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.375rem solid;
+}
+
+.health-icon {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.activity-icon {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.weight-icon {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.stat-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: black;
+}
+
+.sleep-card {
+    position: relative;
+}
+
+.sleep-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: 6.25rem;
+    width: 100%;
+}
+
+.sleep-chart .bar {
+    flex: 1;
+    background: #5B9BD5;
+    border-radius: 0.25rem 0.25rem 0 0;
+    min-height: 1.25rem;
+}
 
 
 
@@ -500,13 +744,6 @@ cursor: pointer;
    }
 
 
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  background-color: #91baf9;
-  color: #000;
-  text-align: center;
-}
 
 
 .date-buttons {
@@ -575,28 +812,333 @@ h1 {
 
 
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #87b7f3; 
-  color: #000;
+/* Walking Schedule Page */
+#walkingschedule {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.walking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.weekdays {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.weekdays span {
+    background: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.weekdays span:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.weekdays span.active {
+    background: #609cf9;
+    color: white;
+}
+
+.walking-header h2 {
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.reminder-box {
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.reminder-box p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.pet-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.walking-pet-photo {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.5rem solid white;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.total-time {
+    position: absolute;
+    bottom: -1rem;
+}
+
+.total-time h3 {
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.activity-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+.stat-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-label {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.circle-value {
+    width: 5rem;
+    height: 5rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-circle.bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.stat-circle.bottom-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.stat-circle .icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    font-weight: 600;
 }
 
 
-header {
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  border-bottom: 2px solid #d6d6d6;
+
+
+/* Appointments Page */
+#appointments {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.navbar {
-  display: flex;
-  gap: 12px;
-  
+.appointments-header h1 {
+    background: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    display: inline-block;
 }
+
+.appointment-notice {
+    text-align: center;
+}
+
+.appointment-notice p {
+    background: white;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.appointments-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    flex: 1;
+}
+
+/* Appointment List */
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.appointment-item {
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.appointment-item:hover {
+    transform: translateX(0.25rem);
+}
+
+.appointment-item h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.appointment-item.vet {
+    background: #90EE90;
+}
+
+.appointment-item.grooming {
+    background: #6B6BFF;
+    color: white;
+}
+
+.appointment-item.training {
+    background: #FF69B4;
+    color: white;
+}
+
+/* Calendar Section */
+.calendar-section {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.day-label {
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: #e0e0e0;
+}
+
+.calendar-day.empty {
+    cursor: default;
+    color: #ccc;
+}
+
+.calendar-day.has-appointment {
+    background: #90EE90;
+    font-weight: 600;
+}
+
+.calendar-day.selected {
+    background: #6B6BFF;
+    color: white;
+}
+
+.calendar-day.has-appointment.grooming {
+    background: #FF69B4;
+    color: white;
+}
+
+/* Appointment Actions */
+.appointment-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.action-btn {
+    background: white;
+    border: 0.125rem solid black;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #609cf9;
+    transform: translateY(-0.125rem);
+}
+
+
 
 
 
@@ -680,15 +1222,402 @@ h1 {
 }
 
 /*feeding schedule HTML*/
+#feedingschedule {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.schedule-header h1 {
+    background: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    margin: 0;
+}
+
+.pet-info {
+    text-align: center;
+}
+
+.pet-info p {
+    background: white;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0;
+}
+
+.timeline-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.time-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.time-labels span {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.activities-container {
+    position: relative;
+    height: 15rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+}
 
 
 
+
+.activity-item:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.125rem);
+}
+
+.activity-item {
+    position: absolute;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    min-width: 8rem;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.activity-item.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.activity-item:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.125rem) scale(1.02);
+  }
 
 #mobileviewfeeding {
 display: none;
 }
 
+#mobilehealthviewpfp {
+  border-radius: 50%;
+}
+
+/*Mobile Health*/
+.mobileonly {
+  display: flex;
+  flex-direction: column-reverse;
+
+}
+.mobileonly header {
+  display: flex;
+
+}
+
 /*End of feeding schedule*/
+/* Mobile Activity Page */
+#activity-mobile {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+}
+
+.activity-mobile-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mobile-pet-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+.activity-pet-photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.25rem solid white;
+}
+
+.pet-selector p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.pet-count {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+.activity-subtitle {
+    text-align: center;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.activity-weekdays {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25rem;
+}
+
+.activity-day {
+    background: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.activity-day.active {
+    background: #6B6BFF;
+    color: white;
+}
+
+.activity-chart {
+    display: flex;
+    gap: 0.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    min-height: 12rem;
+}
+
+.chart-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.chart-bars {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
+.activity-bar {
+    height: 1.25rem;
+    border-radius: 0.5rem;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.activity-bar.orange { background: #FFA500; }
+.activity-bar.purple { background: #9B4DCA; }
+.activity-bar.red { background: #DC143C; }
+.activity-bar.yellow { background: #FFD700; }
+.activity-bar.green { background: #90EE90; }
+
+.activity-status {
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+}
+
+.activity-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.activity-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.icon-circle span {
+    font-weight: 600;
+}
+
+.activity-icon-item p {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.activity-summary {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.summary-center {
+    grid-column: 2;
+    background: white;
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.summary-center h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.summary-side {
+    display: flex;
+    align-items: center;
+}
+
+.summary-side.right {
+    justify-content: flex-end;
+}
+
+.summary-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.summary-card p {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.summary-card span {
+    font-size: 0.625rem;
+    font-weight: 500;
+}
+
+.upcoming-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-title {
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+}
+
+.schedule-times {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.schedule-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-card {
+    background: #90EE90;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.schedule-card p {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.add-activity-btn-mobile {
+    background: white;
+    border: 0.125rem solid black;
+    border-radius: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 1rem 0;
+}
+
+.add-activity-btn-mobile:hover {
+    background: #609cf9;
+    transform: scale(1.02);
+}
+
+/* Show/hide for mobile */
+@media screen and (max-width: 768px) {
+    #activity-mobile {
+        display: flex !important;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #activity-mobile {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 768px) {
   
@@ -713,12 +1642,13 @@ display: none;
   display: flex;
   margin-top: auto;
   background-color: #90BAFE;
+  justify-content: center;
 }
 
 .mobilenavbar ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   list-style: none;
   padding: 0;
@@ -787,6 +1717,16 @@ border-radius: 50%;
   border-radius: 5%;
 }
 
+ #healthoverview-mobile {
+        display: none;
+    }
 
+     #healthoverview {
+        display: none;
+    }
+    
+    .mobile-only {
+        display: flex;
+    }
 
 }

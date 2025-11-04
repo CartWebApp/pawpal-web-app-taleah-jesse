@@ -51,7 +51,7 @@
             </div>
             <ul>
                 <li>
-                    <a href="#" class="navbuttons">11/3/25</a>
+                    <a href="#" class="navbuttons">11/6/25</a>
                 </li>
             
                 <li>
@@ -95,30 +95,113 @@
    
 </main>
        
-    <main id="desktopfeeding">
-        <section class="feeding-section">
-            <h2>Feeding Schedule</h2>
-            <p><span class="pet-name">[Pet's Name]</span>is eating healthy and well</p>
-            <button class="add-activity">+ Add activity</button>
+    <main id="feedingschedule">
+    <section class="schedule-header">
+        <h1>Feeding Schedule</h1>
+        <button class="navbuttons" id="add-activity-btn">+ Add activity</button>
+    </section>
 
-            <div class="timeline">
-                <div class="time-labels">
-                    <span>8:00am</span>
-                    <span>10:00am</span>
-                    <span>12:00pm</span>
-                    <span>2:00pm</span>
-                    <span>4:00pm</span>
-                    <span>6:00pm</span>
-                </div>
+    <section class="pet-info">
+        <p>Goldie is eating healthy and well</p>
+    </section>
 
-            <div class="activities">
-            <div class="activity" style="left:5%;">Feeding at 8:30</div>
-          <div class="activity" style="left:20%;">Snack at 10:00</div>
-          <div class="activity" style="left:35%;">Medication at 12:45</div>
-          <div class="activity" style="left:55%;">Feeding at 2:30</div>
+    <section class="timeline-section">
+        <div class="time-labels">
+            <span>8:00am</span>
+            <span>10:00am</span>
+            <span>12:00pm</span>
+            <span>2:00pm</span>
+            <span>4:00pm</span>
+            <span>6:00pm</span>
         </div>
-      </div>
-        </section>
-       </main>
+
+        <div class="activities-container" id="activities-container">
+           
+        </div>
+    </section>
+</main>
     </body>
-</html>
+
+<script>
+// Sample activities data
+let activities = [
+    { name: "Feeding", time: "8:30", type: "feeding" },
+    { name: "Snack", time: "10:00", type: "snack" },
+    { name: "Medication", time: "12:45", type: "medication" },
+    { name: "Feeding", time: "2:30", type: "feeding" }
+];
+
+const container = document.getElementById('activities-container');
+const addBtn = document.getElementById('add-activity-btn');
+
+// Convert time to position percentage (8am = 0%, 6pm = 100%)
+function timeToPosition(timeStr) {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    const totalMinutes = (hours - 8) * 60 + minutes;
+    const maxMinutes = 10 * 60; // 8am to 6pm = 10 hours
+    return (totalMinutes / maxMinutes) * 100;
+}
+
+// Render all activities
+function renderActivities(animateNew = false) {
+    container.innerHTML = '';
+    
+    activities.forEach((activity, index) => {
+        const activityEl = document.createElement('div');
+        activityEl.className = 'activity-item';
+        activityEl.style.left = `${timeToPosition(activity.time)}%`;
+        activityEl.style.top = `${(index % 3) * 30 + 20}%`; // Stagger vertically
+        activityEl.innerHTML = `
+            <div>${activity.name}</div>
+            <div style="font-size: 0.875rem; opacity: 0.7;">at ${activity.time}</div>
+        `;
+        
+        // Click to remove activity
+        activityEl.addEventListener('click', () => {
+            if (confirm(`Remove "${activity.name}" at ${activity.time}?`)) {
+                activities.splice(index, 1);
+                renderActivities();
+            }
+        });
+        
+        container.appendChild(activityEl);
+        
+        // Animate only the last item if it's new
+        if (animateNew && index === activities.length - 1) {
+            setTimeout(() => {
+                activityEl.classList.add('show');
+            }, 50);
+        } else {
+            activityEl.classList.add('show');
+        }
+    });
+}
+
+// Add new activity
+addBtn.addEventListener('click', () => {
+    const activityName = prompt('Activity name (e.g., Feeding, Snack, Medication):');
+    if (!activityName) return;
+    
+    const activityTime = prompt('Time (e.g., 3:30 for 3:30pm):');
+    if (!activityTime) return;
+    
+    // Validate time format
+    if (!/^\d{1,2}:\d{2}$/.test(activityTime)) {
+        alert('Please use format HH:MM (e.g., 3:30)');
+        return;
+    }
+    
+    activities.push({
+        name: activityName,
+        time: activityTime,
+        type: 'custom'
+    });
+    
+    renderActivities(true); // Pass true to animate the new item
+});
+
+// Initialize
+renderActivities();
+</script>
+
+    </html>

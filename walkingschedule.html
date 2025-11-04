@@ -9,7 +9,8 @@
     <title>Walking Schedule</title>
  </head>
 <body>
-  <nav class="mobilenavbar">
+  <header>
+<nav class="mobilenavbar">
 
 <ul>
 <li>
@@ -42,49 +43,179 @@
     </a>
 </li>
 </ul>
+</nav>
+<nav class="navbar">
+            <div class="navbar-logo">
+                <img id="pawpalogo" src="img/pawpalogo.jpg" alt="PawPal logo">
+            </div>
+            <ul>
+                <li>
+                    <a href="#" class="navbuttons">11/6/25</a>
+                </li>
+            
+                <li>
+                    <a href="healthoverview.html" class="navbuttons">Health Overview</a>
+                   </li>
+            <li>
+                <a href="feedingschedule.html" class="navbuttons">Feeding Schedule</a>
+            </li>
+            <li>
+                <a href="walkingschedule.html" class="navbuttons">Walking Schedule</a>
+            </li>
+            
+            <li>
+                <a href="appointments.html" class="navbuttons" >Appointments</a>
+            </li>
+            <li>
+                <a href="petprofiles.html" class="navbuttons">Change Pet Profile</a>
+            </li>
+                </ul>
+                
+            </ul>
+            
+       
+        </nav>
+  </header>
+  
 
-    </nav><article class="content">
-    <section class="weekdays">
-      <span>SU</span><span>M</span><span>T</span><span>W</span><span>TH</span><span>F</span><span>S</span>
-    </article>
-
-    <h2>[Pet's Name] stats:</h2>
-
-    <article class="stats-container">
-      <section class="circle-run">
-        <p>Running</p>
-        <span>##</span>
-      </section>
-
-      <section class="circle-walk">
-        <p>Walking</p>
-        <span>##</span>
-      </section>
-
-      <section class="circle-play">
-        <p>Playing</p>
-        <span>##</span>
-      </section>
-
-      <section class="circle-calories">
-        <img src="blueflame.png" alt="calories" />
-        <p>####<br>calories</p>
-      </section>
-
-      <section class="circle-miles">
-        <img src="bluetriangle.png" alt="miles" />
-        <p>#.#<br>miles</p>
-      </section>
-
-      <section class="pet-photo">
-        <img src="blondedogcircle.jpg" alt="pet photo" />
-        <h1>## mins</h1>
-      </section>
-    </article>
-
-    <section class="reminder">
-      Reminder: Walk at 2:00 pm
+   
+<main id="walkingschedule">
+    <section class="walking-header">
+        <div class="weekdays">
+            <span>SU</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>TH</span>
+            <span>F</span>
+            <span>S</span>
+        </div>
+        <h2>Goldie's stats:</h2>
+        <div class="reminder-box">
+            <p>Reminder: Walk at <span id="reminder-time">2:00 pm</span></p>
+        </div>
     </section>
-</section>
+
+    <section class="pet-center">
+        <img src="img/blondedog-2.jpg" alt="Pet photo" class="walking-pet-photo">
+        <div class="total-time">
+            <h3 id="total-minutes">### mins</h3>
+        </div>
+    </section>
+
+    <section class="activity-stats">
+        <div class="stat-circle">
+            <p class="stat-label">Walking</p>
+            <div class="circle-value">##</div>
+        </div>
+
+        <div class="stat-circle">
+            <p class="stat-label">Running</p>
+            <div class="circle-value">##</div>
+        </div>
+
+        <div class="stat-circle">
+            <p class="stat-label">Playing</p>
+            <div class="circle-value">##</div>
+        </div>
+
+        <div class="stat-circle bottom-left">
+            <div class="icon">🔥</div>
+            <p class="stat-value" id="calories">#### calories</p>
+        </div>
+
+        <div class="stat-circle bottom-right">
+            <div class="icon">👟</div>
+            <p class="stat-value" id="miles">## miles</p>
+        </div>
+    </section>
+</main>
 </body>
+
+<script>
+// Sample data
+let walkingData = {
+    walking: 45,
+    running: 20,
+    playing: 35,
+    totalMinutes: 100,
+    calories: 1250,
+    miles: 3.5,
+    reminderTime: "2:00 pm"
+};
+
+// Get elements
+const weekdayButtons = document.querySelectorAll('.weekdays span');
+const walkingValue = document.querySelector('.stat-circle:nth-child(1) .circle-value');
+const runningValue = document.querySelector('.stat-circle:nth-child(2) .circle-value');
+const playingValue = document.querySelector('.stat-circle:nth-child(3) .circle-value');
+const totalMinutes = document.getElementById('total-minutes');
+const calories = document.getElementById('calories');
+const miles = document.getElementById('miles');
+const reminderTime = document.getElementById('reminder-time');
+
+// Set today as active
+const today = new Date().getDay();
+weekdayButtons[today].classList.add('active');
+
+// Function to generate random data for different days
+function generateRandomData() {
+    return {
+        walking: Math.floor(Math.random() * 60) + 20,
+        running: Math.floor(Math.random() * 40) + 10,
+        playing: Math.floor(Math.random() * 50) + 15,
+        totalMinutes: Math.floor(Math.random() * 100) + 60,
+        calories: Math.floor(Math.random() * 1000) + 800,
+        miles: (Math.random() * 5 + 1).toFixed(1),
+        reminderTime: "2:00 pm"
+    };
+}
+
+// Update display with animation
+function updateDisplay(data) {
+    // Add pop animation
+    walkingValue.style.transform = 'scale(0.8)';
+    runningValue.style.transform = 'scale(0.8)';
+    playingValue.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+        walkingValue.textContent = data.walking;
+        runningValue.textContent = data.running;
+        playingValue.textContent = data.playing;
+        totalMinutes.textContent = `${data.totalMinutes} mins`;
+        calories.textContent = `${data.calories} calories`;
+        miles.textContent = `${data.miles} miles`;
+        reminderTime.textContent = data.reminderTime;
+        
+        // Pop back
+        walkingValue.style.transform = 'scale(1)';
+        runningValue.style.transform = 'scale(1)';
+        playingValue.style.transform = 'scale(1)';
+    }, 150);
+}
+
+// Add transitions to circle values
+document.querySelectorAll('.circle-value').forEach(circle => {
+    circle.style.transition = 'transform 0.3s ease';
+});
+
+// Weekday click handlers
+weekdayButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Remove active from all
+        weekdayButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active to clicked
+        button.classList.add('active');
+        
+        // Generate and display new data
+        const newData = generateRandomData();
+        updateDisplay(newData);
+    });
+});
+
+// Initialize with current data
+updateDisplay(walkingData);
+</script>
+
 </html>
